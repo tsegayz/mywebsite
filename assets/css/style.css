@@ -230,18 +230,18 @@ h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/back.jpeg") center;
-  background-size: cover;
+  background: url("../img/back.jpg") center;
+  background-size: 100% 100% ;
   background-repeat: no-repeat;
 }
 
 #hero:before {
   content: "";
-  background: rgba(5, 13, 24, 0.3);
+  background: rgba(5, 13, 24, 0.61);
   position: absolute;
   bottom: 0;
   top: 0;
-  left: 0;
+  left: 90px;
   right: 0;
   z-index: 1;
 }
@@ -249,12 +249,13 @@ h6 {
 #hero .hero-container {
   position: relative;
   z-index: 2;
-  min-width: 700px;
+  min-width: 750px;
+  margin-top: 20em;
 }
 
 #hero h1 {
   margin: 0 0 10px 0;
-  font-size: 64px;
+  font-size: 90px;
   font-weight: 700;
   line-height: 56px;
   color: #fff;
@@ -263,14 +264,14 @@ h6 {
 #hero p {
   color: #fff;
   margin-bottom: 50px;
-  font-size: 54px;
+  font-size: 65px;
   font-family: "Poppins", sans-serif;
 }
 
 #hero p span {
   color: #fff;
   letter-spacing: 1px;
-  border-bottom: 6px solid #149ddd;
+  border-bottom: 6px solid antiquewhite;
 }
 
 @media (min-width: 1024px) {
@@ -281,15 +282,22 @@ h6 {
 
 @media (max-width: 768px) {
   #hero h1 {
-    font-size: 28px;
+    font-size: 44px;
     line-height: 36px;
   }
-
-  #hero h2 {
-    font-size: 18px;
-    line-height: 24px;
-    margin-bottom: 30px;
+  #hero .hero-container {
+    min-width: 700px;
+    margin-left: 15em;
   }
+  
+  #hero p {
+    color: #fff;
+    margin-bottom: 50px;
+    font-size: 40px;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  
 }
 
 /*--------------------------------------------------------------
@@ -310,7 +318,7 @@ section {
 }
 
 .section-title h2 {
-  font-size: 32px;
+  font-size: 40px;
   font-weight: bold;
   margin-bottom: 20px;
   padding-bottom: 20px;
@@ -330,6 +338,7 @@ section {
 }
 
 .section-title p {
+  font-size: 18px;
   margin-bottom: 0;
 }
 
@@ -338,12 +347,13 @@ section {
 --------------------------------------------------------------*/
 
 .about .content{
-  padding-left: 100px;
+  padding-left: 70px;
+  font-size: 18px;
 }
 .about .content h3 {
   /* margin-left: 30px; */
   font-weight: 700;
-  font-size: 26px;
+  font-size: 30px;
   color: #173b6c;
 }
 
@@ -360,12 +370,14 @@ section {
 
 .about .content ul strong {
   margin-right: 10px;
+  font-size: 18px;
+
 }
 
 .about .content ul i {
   font-size: 16px;
   margin-right: 5px;
-  color: #149ddd;
+  color: #9c24a0;
   line-height: 0;
 }
 
@@ -375,41 +387,39 @@ section {
 
 
 /*--------------------------------------------------------------
-# Akills
+# skills
 --------------------------------------------------------------*/
-.skills .progress {
-  height: 60px;
-  display: block;
-  background: none;
-  border-radius: 0;
+.icon-row {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 40px;
 }
 
-.skills .progress .skill {
-  padding: 0;
-  margin: 0 0 6px 0;
-  text-transform: uppercase;
-  display: block;
-  font-weight: 600;
-  font-family: "Poppins", sans-serif;
-  color: #050d18;
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 120px;
+  border-radius: 1.5em;
+  background-color: transparent;
+  border: 3px solid #a06ee1a2;
+  box-shadow: 0 0 10px #ccc;
+  margin: 10px;
 }
 
-.skills .progress .skill .val {
-  float: right;
-  font-style: normal;
+.icon-container:hover .icon {
+  color: #a06ee1e1;
+  transition: all 0.3s ease-in-out;
 }
 
-.skills .progress-bar-wrap {
-  background: #dce8f8;
-  height: 10px;
+.icon {
+  font-size: 90px;
+  color: #aaa9a98f;
+  margin-bottom: 10px;
 }
 
-.skills .progress-bar {
-  width: 1px;
-  height: 10px;
-  transition: 0.9s;
-  background-color: #149ddd;
-}
 
 /*--------------------------------------------------------------
 # Resume
@@ -425,7 +435,7 @@ section {
 .resume .resume-item {
   padding: 0 0 20px 20px;
   margin-top: -2px;
-  border-left: 2px solid #1f5297;
+  border-left: 2px solid #a23fc0;
   position: relative;
 }
 
@@ -469,7 +479,7 @@ section {
   left: -9px;
   top: 0;
   background: #fff;
-  border: 2px solid #1f5297;
+  border: 2px solid #a23fc0;
 }
 
 /*--------------------------------------------------------------
@@ -490,11 +500,11 @@ section {
   cursor: pointer;
   display: inline-block;
   padding: 8px 16px 10px 16px;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 1;
   text-transform: uppercase;
-  color: #444444;
+  color: #000000;
   margin-bottom: 5px;
   transition: all 0.3s ease-in-out;
   border-radius: 50px;
@@ -503,7 +513,8 @@ section {
 .portfolio #portfolio-flters li:hover,
 .portfolio #portfolio-flters li.filter-active {
   color: #fff;
-  background: #34b7a7;
+  font-size: 18px;
+  background: #9043a8ce;
 }
 
 .portfolio #portfolio-flters li:last-child {
@@ -511,6 +522,7 @@ section {
 }
 
 .portfolio .portfolio-wrap {
+  border-radius: 20px;
   transition: 0.3s;
   position: relative;
   overflow: hidden;
@@ -602,10 +614,12 @@ section {
   width: 400px;
   height: 300px;
   text-align: center;
-  padding: 70px 20px 80px 20px;
+  padding: 60px 20px 200px 20px;
   transition: all ease-in-out 0.3s;
   background: #fff;
-  box-shadow: 0px 0 35px 0 rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  box-shadow: 0px 0 5px 0 rgba(0, 0, 0, 0.08);
+  background-color: rgba(146, 145, 145, 0.048);
 }
 
 .services .icon-box .icon {
@@ -620,15 +634,15 @@ section {
 }
 
 .services .icon-box .icon i {
-  font-size: 36px;
+  font-size: 70px;
   transition: 0.5s;
   position: relative;
 }
 
 .services .icon-box .icon svg {
   position: absolute;
-  top: 0;
-  left: 0;
+  bottom: -20px;
+  right: -25px;
 }
 
 .services .icon-box .icon svg path {
@@ -654,7 +668,7 @@ section {
 }
 
 .services .iconbox-blue i {
-  color: #47aeff;
+  color: #47afffad;
 }
 
 .services .iconbox-blue:hover .icon i {
@@ -662,11 +676,11 @@ section {
 }
 
 .services .iconbox-blue:hover .icon path {
-  fill: #47aeff;
+  fill: #47afff69;
 }
 
 .services .iconbox-orange i {
-  color: #ffa76e;
+  color: #ffa86eab;
 }
 
 .services .iconbox-orange:hover .icon i {
@@ -674,11 +688,11 @@ section {
 }
 
 .services .iconbox-orange:hover .icon path {
-  fill: #ffa76e;
+  fill: #ffa86e7a;
 }
 
 .services .iconbox-pink i {
-  color: #e80368;
+  color: #e803665e;
 }
 
 .services .iconbox-pink:hover .icon i {
@@ -686,11 +700,11 @@ section {
 }
 
 .services .iconbox-pink:hover .icon path {
-  fill: #e80368;
+  fill: #e803665d;
 }
 
 .services .iconbox-yellow i {
-  color: #ffbb2c;
+  color: #ffbc2c9d;
 }
 
 .services .iconbox-yellow:hover .icon i {
@@ -698,11 +712,11 @@ section {
 }
 
 .services .iconbox-yellow:hover .icon path {
-  fill: #ffbb2c;
+  fill: #ffbc2c52;
 }
 
 .services .iconbox-red i {
-  color: #ff5828;
+  color: #ff5728a2;
 }
 
 .services .iconbox-red:hover .icon i {
@@ -710,11 +724,11 @@ section {
 }
 
 .services .iconbox-red:hover .icon path {
-  fill: #ff5828;
+  fill: #ff572842;
 }
 
 .services .iconbox-teal i {
-  color: #11dbcf;
+  color: #11dbceab;
 }
 
 .services .iconbox-teal:hover .icon i {
@@ -722,7 +736,7 @@ section {
 }
 
 .services .iconbox-teal:hover .icon path {
-  fill: #11dbcf;
+  fill: #11dbce44;
 }
 
 /*--------------------------------------------------------------
@@ -731,83 +745,43 @@ section {
 .contact {
   padding-bottom: 130px;
 }
-
-.contact .info {
-  padding: 30px;
-  background: #fff;
-  width: 100%;
-  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+.contact .info{
+  margin-left: 0px;
+  background-color: #273346e7;
+  width: 600px;
+  color: white;
+  padding: 40px 0px 0px 50px;
 }
-
-.contact .info i {
+.contact .info h4{
+  margin-bottom: 70px;
+}
+.contact .info .info-list {
   font-size: 20px;
-  color: #149ddd;
-  float: left;
-  width: 44px;
-  height: 44px;
-  background: #dff3fc;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50px;
-  transition: all 0.3s ease-in-out;
 }
-
-.contact .info h4 {
-  padding: 0 0 0 60px;
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 5px;
-  color: #050d18;
+.contact .info .info-list i {
+  color: #627086e3 ;
+  margin-right: 30px;
+  font-size: 40px;
+  margin-bottom: 38px;
 }
-
-.contact .info p {
-  padding: 0 0 10px 60px;
-  margin-bottom: 20px;
-  font-size: 14px;
-  color: #173b6c;
+.contact .info .contact-socials{
+  padding-left: 90px;
 }
-
-.contact .info .email p {
-  padding-top: 5px;
-}
-
-.contact .info .social-links {
-  padding-left: 60px;
-}
-
-.contact .info .social-links a {
-  font-size: 18px;
-  display: inline-block;
-  background: #333;
-  color: #fff;
-  line-height: 1;
-  padding: 8px 0;
+.contact .info .contact-socials a{
+  padding: 0px 3px;
   border-radius: 50%;
-  text-align: center;
-  width: 36px;
-  height: 36px;
-  transition: 0.3s;
-  margin-right: 10px;
+  background-color: #6270869f ;
+  font-size: 25px;
+  color: #273242e3 ;
+  margin-left: 20px;
 }
-
-.contact .info .social-links a:hover {
-  background: #149ddd;
-  color: #fff;
-}
-
-.contact .info .email:hover i,
-.contact .info .address:hover i,
-.contact .info .phone:hover i {
-  background: #149ddd;
-  color: #fff;
-}
-
 .contact .php-email-form {
   width: 100%;
   padding: 30px;
+  padding-top: 60px;
   background: #fff;
-  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.12);
 }
 
 .contact .php-email-form .form-group {
@@ -864,18 +838,18 @@ section {
 }
 
 .contact .php-email-form .form-group {
-  margin-bottom: 15px;
-}
-
-.contact .php-email-form label {
-  padding-bottom: 8px;
+  margin-bottom: 45px;
 }
 
 .contact .php-email-form input,
 .contact .php-email-form textarea {
-  border-radius: 0;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-bottom: 3px rgb(209, 209, 209) solid;
+  border-radius: 0px;
   box-shadow: none;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .contact .php-email-form input {
@@ -883,20 +857,53 @@ section {
 }
 
 .contact .php-email-form textarea {
-  padding: 10px 15px;
+  padding: 1px 15px;
 }
 
 .contact .php-email-form button[type=submit] {
-  background: #149ddd;
+  background: #0e171b;
   border: 0;
-  padding: 10px 24px;
+  padding: 10px 34px;
   color: #fff;
   transition: 0.4s;
-  border-radius: 4px;
+  font-size: 18px;
+  border-radius: 44px;
 }
 
 .contact .php-email-form button[type=submit]:hover {
-  background: #37b3ed;
+  background: #104672;
+}
+.contact .col-lg-5 {
+  margin-left: -20px;
+}
+
+
+/* Style for submit button */
+.submit-button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Style for submit button hover effect */
+.submit-button:hover {
+  background-color: purple;
+}
+
+@media (max-width: 768px) {
+  .contact .col-lg-5 {
+    margin-left: 0px;
+  }
+  .contact .info .contact-socials a{
+    font-size: 30px;
+  }
+  .contact .info .contact-socials{
+    padding-bottom: 90px;
+  }
 }
 
 @keyframes animate-loading {
