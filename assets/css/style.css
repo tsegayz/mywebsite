@@ -241,7 +241,7 @@ h6 {
   position: absolute;
   bottom: 0;
   top: 0;
-  left: 90px;
+  left: 0;
   right: 0;
   z-index: 1;
 }
@@ -281,6 +281,9 @@ h6 {
 }
 
 @media (max-width: 768px) {
+  #hero {
+    background-attachment: fixed;
+  }
   #hero h1 {
     font-size: 44px;
     line-height: 36px;
