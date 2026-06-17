@@ -23,23 +23,27 @@ const Work = () => {
       title: "EFFOYTA",
       desc: "Mental health app that addresses your issues — mood, support, control.",
       image: float1,
+      link: "https://www.figma.com/proto/DycmMgSeSG4ikro2di7QGA/Effoyta?node-id=1-2&t=k8yKG4mHYV3BzQWB-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&show-proto-sidebar=1",
     },
     {
       title: "Akeray",
       desc: "You can watch and download movies of your choice.",
       image: float2,
+      link: "https://www.figma.com/proto/i1xrfAb6ERrUtzOB7SYpuj/Akeray?node-id=1-2&node-type=frame&t=HyGa5W5aaxTBOUkF-1&scaling=scale-down",
     },
 
     {
       title: "Ardi-travel",
       desc: "A tour guide web application that creates ease of traveling.",
       image: float3,
+      link: "https://www.figma.com/proto/9vrX2AK2eEh3OZAyS0G7r2/Ardi-travel?node-id=1412-2&t=JIXLi7xN4LejWSrG-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1412%3A2&show-proto-sidebar=1",
     },
 
     {
       title: "Josam",
       desc: "A brand website for a paint manufacturing and distributing company.",
       image: float4,
+      link: "https://www.figma.com/proto/eCV4RI8Y5baNKYChZyAzYi/josam_paint?node-id=7-8&t=f4UJkLBXkDKfTuVM-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=7%3A8",
     },
   ];
   const socials = [
@@ -105,6 +109,14 @@ const Work = () => {
               id={`card-${index}`}
               className={`preview-card card-${index}`}
               key={index}
+                style={{
+                "--rotate": float.rotate,
+                "--delay": float.delay,
+                cursor: "pointer", 
+              }}
+              onClick={() => {
+                window.open(float.link, "_blank", "noopener,noreferrer");
+              }}
             >
               <div className="dot-container">
                 <div className="dot" />

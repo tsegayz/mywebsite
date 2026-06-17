@@ -1,5 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+  useLocation,
+} from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import PageWrapper from "./PageWrapper";
 
@@ -10,7 +16,6 @@ import "./App.css";
 import proj1 from "./assets/images/sec1.jpg";
 import proj2 from "./assets/images/sec2.webp";
 import proj3 from "./assets/images/sec3.jpg";
-
 
 import Work from "./Work";
 import Contacts from "./Contacts";
@@ -28,16 +33,19 @@ function Home() {
       id: 1,
       title: "JOSAM",
       image: proj1,
+      link: "https://www.figma.com/proto/eCV4RI8Y5baNKYChZyAzYi/josam_paint?node-id=7-8&t=f4UJkLBXkDKfTuVM-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=7%3A8",
     },
     {
       id: 2,
       title: "AKERAY",
       image: proj2,
+      link: "https://www.figma.com/proto/i1xrfAb6ERrUtzOB7SYpuj/Akeray?node-id=1-2&node-type=frame&t=HyGa5W5aaxTBOUkF-1&scaling=scale-down",
     },
     {
       id: 3,
       title: "HEALTHCOLOGY",
       image: proj3,
+      link: "https://www.figma.com/proto/4neoFkqafOLcICtuS6PShc/healthcology?node-id=7-3&t=7IFEdqiY4NDz99ac-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=7%3A3",
     },
   ];
   const socials = [
@@ -76,13 +84,21 @@ function Home() {
     },
   ];
   const projects = [
-    { id: 1, title: "EFFOYTA", image: proj1, rotate: "-8deg", delay: "0s" },
+    {
+      id: 1,
+      title: "EFFOYTA",
+      image: proj1,
+      rotate: "-8deg",
+      delay: "0s",
+      link: "https://www.figma.com/proto/DycmMgSeSG4ikro2di7QGA/Effoyta?node-id=1-2&t=k8yKG4mHYV3BzQWB-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&show-proto-sidebar=1",
+    },
     {
       id: 2,
       title: "ARDITRAVEL",
       image: proj2,
       rotate: "-2deg",
       delay: "1s",
+      link: "https://www.figma.com/proto/9vrX2AK2eEh3OZAyS0G7r2/Ardi-travel?node-id=1412-2&t=JIXLi7xN4LejWSrG-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1412%3A2&show-proto-sidebar=1",
     },
     {
       id: 3,
@@ -90,6 +106,7 @@ function Home() {
       image: proj3,
       rotate: "4deg",
       delay: "2s",
+      link: "https://www.figma.com/proto/utb1NIwfeitNw2UEpeQPHr/vine-verdict?node-id=860-543&t=SEz0dIgFftXalwLl-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=860%3A543&show-proto-sidebar=1",
     },
   ];
   useEffect(() => {
@@ -102,7 +119,7 @@ function Home() {
     let ballY = mouseY;
     let isVisible = false;
 
-    const speed = 0.12; 
+    const speed = 0.12;
 
     function onMouseMove(e) {
       mouseX = e.clientX;
@@ -139,7 +156,7 @@ function Home() {
   useEffect(() => {
     const reel = reelRef.current;
     const target = 5;
-    const itemHeight = 40; 
+    const itemHeight = 40;
 
     reel.style.transform = `translateY(-${target * itemHeight}px)`;
   }, []);
@@ -228,8 +245,12 @@ function Home() {
               <div className="image-wrap">
                 <img src={item.image} alt={item.title} />
               </div>
-
-              <button className="card-btn">
+              <button
+                className="card-btn"
+                onClick={() => {
+                  window.open(item.link, "_blank", "noopener,noreferrer");
+                }}
+              >
                 <span className="text-pill">{item.title}</span>
                 <span className="arrow">↗</span>
               </button>
@@ -329,7 +350,14 @@ function Home() {
             <div
               key={p.id}
               className="showcase-card"
-              style={{ "--rotate": p.rotate, "--delay": p.delay }}
+              style={{
+                "--rotate": p.rotate,
+                "--delay": p.delay,
+                cursor: "pointer", 
+              }}
+              onClick={() => {
+                window.open(p.link, "_blank", "noopener,noreferrer");
+              }}
             >
               <div className="showcase-img-wrap">
                 <img src={p.image} alt={p.title} />
@@ -376,10 +404,38 @@ function AnimatedRoutes() {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
-        <Route path="/work" element={<PageWrapper><Work /></PageWrapper>} />
-        <Route path="/contacts" element={<PageWrapper><Contacts /></PageWrapper>} />
-        <Route path="/services" element={<PageWrapper><Services /></PageWrapper>} />
+        <Route
+          path="/"
+          element={
+            <PageWrapper>
+              <Home />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/work"
+          element={
+            <PageWrapper>
+              <Work />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/contacts"
+          element={
+            <PageWrapper>
+              <Contacts />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/services"
+          element={
+            <PageWrapper>
+              <Services />
+            </PageWrapper>
+          }
+        />
       </Routes>
     </AnimatePresence>
   );
