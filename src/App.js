@@ -3,7 +3,7 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  Link,
+  NavLink,
   useLocation,
 } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
@@ -33,19 +33,19 @@ function Home() {
       id: 1,
       title: "JOSAM",
       image: proj1,
-      link: "https://www.figma.com/proto/eCV4RI8Y5baNKYChZyAzYi/josam_paint?node-id=7-8&t=f4UJkLBXkDKfTuVM-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=7%3A8",
+      link: "https://www.figma.com/proto/eCV4RI8Y5baNKYChZyAzYi/josam_paint?node-id=7-8&t=Mi830pQ7kuxQuQJr-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=7%3A8",
     },
     {
       id: 2,
       title: "AKERAY",
       image: proj2,
-      link: "https://www.figma.com/proto/i1xrfAb6ERrUtzOB7SYpuj/Akeray?node-id=1-2&node-type=frame&t=HyGa5W5aaxTBOUkF-1&scaling=scale-down",
+      link: "https://www.figma.com/proto/i1xrfAb6ERrUtzOB7SYpuj/Akeray?node-id=1-2&t=QffsbwLdIDiJ47hk-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2",
     },
     {
       id: 3,
       title: "HEALTHCOLOGY",
       image: proj3,
-      link: "https://www.figma.com/proto/4neoFkqafOLcICtuS6PShc/healthcology?node-id=7-3&t=7IFEdqiY4NDz99ac-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=7%3A3",
+      link: "https://www.figma.com/proto/4neoFkqafOLcICtuS6PShc/healthcology?node-id=7-3&t=4Bf99EyEqxZL7pbR-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=7%3A3",
     },
   ];
   const socials = [
@@ -90,7 +90,7 @@ function Home() {
       image: proj1,
       rotate: "-8deg",
       delay: "0s",
-      link: "https://www.figma.com/proto/DycmMgSeSG4ikro2di7QGA/Effoyta?node-id=1-2&t=k8yKG4mHYV3BzQWB-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&show-proto-sidebar=1",
+      link: "https://www.figma.com/proto/DycmMgSeSG4ikro2di7QGA/Effoyta?node-id=1-2&t=ObOtmu3ax5Wm9pQC-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&show-proto-sidebar=1",
     },
     {
       id: 2,
@@ -98,7 +98,7 @@ function Home() {
       image: proj2,
       rotate: "-2deg",
       delay: "1s",
-      link: "https://www.figma.com/proto/9vrX2AK2eEh3OZAyS0G7r2/Ardi-travel?node-id=1412-2&t=JIXLi7xN4LejWSrG-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1412%3A2&show-proto-sidebar=1",
+      link: "https://www.figma.com/proto/9vrX2AK2eEh3OZAyS0G7r2/Ardi-travel?node-id=1412-2&t=BTkz0ZeAcanwfXTK-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1412%3A2",
     },
     {
       id: 3,
@@ -106,7 +106,7 @@ function Home() {
       image: proj3,
       rotate: "4deg",
       delay: "2s",
-      link: "https://www.figma.com/proto/utb1NIwfeitNw2UEpeQPHr/vine-verdict?node-id=860-543&t=SEz0dIgFftXalwLl-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=860%3A543&show-proto-sidebar=1",
+      link: "https://www.figma.com/proto/AOOqx4rAjgCL6prwb7Qfz6/Anki?node-id=548-12043&t=DldpmXTnFEaWX7gR-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1",
     },
   ];
   useEffect(() => {
@@ -247,9 +247,7 @@ function Home() {
               </div>
               <button
                 className="card-btn"
-                onClick={() => {
-                  window.open(item.link, "_blank", "noopener,noreferrer");
-                }}
+                onClick={() => window.open(item.link, "_blank")}
               >
                 <span className="text-pill">{item.title}</span>
                 <span className="arrow">↗</span>
@@ -279,13 +277,11 @@ function Home() {
             <span className="dot" />
             Open to work
           </div>
-
           <h2 className="value-title">
             Crafting Immersive <br />
             Digital Experiences With <br />
             Precision & Innovation
           </h2>
-
           <p className="value-description">
             Hi! I’m Tsega. As a seasoned UI/UX Design Maestro, I bring a wealth
             of experience and a relentless passion for crafting immersive
@@ -362,7 +358,12 @@ function Home() {
               <div className="showcase-img-wrap">
                 <img src={p.image} alt={p.title} />
               </div>
-              <span className="showcase-label">{p.title}</span>
+              <button
+                className="showcase-label"
+                onClick={() => window.open(p.link, "_blank")}
+              >
+                {p.title}
+              </button>
             </div>
           ))}
         </div>
@@ -461,9 +462,17 @@ export default function App() {
             {/* Brand / First Item on the left */}
             {brandItem && (
               <div className="nav-brand">
-                <Link to={brandItem.path} onClick={() => setIsOpen(false)}>
+                <NavLink
+                  to={brandItem.path}
+                  end
+                  onClick={() => setIsOpen(false)}
+                  // This dynamically adds 'nav-item' class ONLY when you are on the home route
+                  className={({ isActive }) =>
+                    isActive ? "nav-item active-brand" : ""
+                  }
+                >
                   {brandItem.label}
-                </Link>
+                </NavLink>
               </div>
             )}
 
@@ -483,9 +492,13 @@ export default function App() {
                   className={`nav-item ${item.label === "" ? "empty" : ""}`}
                 >
                   {item.label ? (
-                    <Link to={item.path} onClick={() => setIsOpen(false)}>
+                    <NavLink
+                      to={item.path}
+                      end={item.path === "/"} // Prevents home from matching other routes
+                      onClick={() => setIsOpen(false)}
+                    >
                       {item.label}
-                    </Link>
+                    </NavLink>
                   ) : (
                     <span />
                   )}

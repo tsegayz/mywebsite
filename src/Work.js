@@ -8,7 +8,8 @@ import float2 from "./assets/images/float2.png";
 import float3 from "./assets/images/float3.png";
 import float4 from "./assets/images/float4.png";
 import arrow from "./assets/images/arrow.png";
-import Xarrow from "react-xarrows";
+
+import Xarrow, { Xwrapper } from "react-xarrows";
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 const Work = () => {
@@ -23,27 +24,26 @@ const Work = () => {
       title: "EFFOYTA",
       desc: "Mental health app that addresses your issues — mood, support, control.",
       image: float1,
-      link: "https://www.figma.com/proto/DycmMgSeSG4ikro2di7QGA/Effoyta?node-id=1-2&t=k8yKG4mHYV3BzQWB-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&show-proto-sidebar=1",
+      link: "https://www.figma.com/proto/DycmMgSeSG4ikro2di7QGA/Effoyta?node-id=1-2&t=ObOtmu3ax5Wm9pQC-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&show-proto-sidebar=1",
     },
     {
       title: "Akeray",
       desc: "You can watch and download movies of your choice.",
       image: float2,
-      link: "https://www.figma.com/proto/i1xrfAb6ERrUtzOB7SYpuj/Akeray?node-id=1-2&node-type=frame&t=HyGa5W5aaxTBOUkF-1&scaling=scale-down",
+      link: "https://www.figma.com/proto/i1xrfAb6ERrUtzOB7SYpuj/Akeray?node-id=1-2&t=QffsbwLdIDiJ47hk-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2",
     },
-
     {
       title: "Ardi-travel",
       desc: "A tour guide web application that creates ease of traveling.",
       image: float3,
-      link: "https://www.figma.com/proto/9vrX2AK2eEh3OZAyS0G7r2/Ardi-travel?node-id=1412-2&t=JIXLi7xN4LejWSrG-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1412%3A2&show-proto-sidebar=1",
+      link: "https://www.figma.com/proto/9vrX2AK2eEh3OZAyS0G7r2/Ardi-travel?node-id=1412-2&t=BTkz0ZeAcanwfXTK-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1412%3A2",
     },
 
     {
       title: "Josam",
       desc: "A brand website for a paint manufacturing and distributing company.",
       image: float4,
-      link: "https://www.figma.com/proto/eCV4RI8Y5baNKYChZyAzYi/josam_paint?node-id=7-8&t=f4UJkLBXkDKfTuVM-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=7%3A8",
+      link: "https://www.figma.com/proto/eCV4RI8Y5baNKYChZyAzYi/josam_paint?node-id=7-8&t=Mi830pQ7kuxQuQJr-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=7%3A8",
     },
   ];
   const socials = [
@@ -90,33 +90,31 @@ const Work = () => {
             </div>
           ))}
         </div>
-        <div className="section-two">
-          <button className="tag">Selected Works</button>
-          <h2 className="section-two-title">
-            A few things I've poured my time into, built with care, and shipped
-          </h2>
-          <div className="arrow-holder">
-            <p className="section-two-text">
-              Here's a hand-picked selection of projects I've worked on, each
-              one taken from idea to delivery.
-            </p>
-            <img className="arrow" src={arrow} />
-          </div>
+      </div>
+      <div className="section-two">
+        <button className="tag">Selected Works</button>
+        <h2 className="section-two-title">
+          A few things I've poured my time into, built with care, and shipped
+        </h2>
+        <div className="arrow-holder">
+          <p className="section-two-text">
+            Here's a hand-picked selection of projects I've worked on, each one
+            taken from idea to delivery.
+          </p>
+          <img className="arrow" src={arrow} alt="arrow" />
+        </div>
 
+        {/* FLOATING CARDS */}
+        <Xwrapper>
           {/* FLOATING CARDS */}
           {floats.map((float, index) => (
             <div
               id={`card-${index}`}
               className={`preview-card card-${index}`}
               key={index}
-                style={{
-                "--rotate": float.rotate,
-                "--delay": float.delay,
-                cursor: "pointer", 
-              }}
-              onClick={() => {
-                window.open(float.link, "_blank", "noopener,noreferrer");
-              }}
+              onClick={() => window.open(float.link, "_blank")}
+              role="button"
+              tabIndex={0}
             >
               <div className="dot-container">
                 <div className="dot" />
@@ -126,17 +124,21 @@ const Work = () => {
               <img src={float.image} alt={float.title} />
             </div>
           ))}
+
           <div id="more-coming" className="more-coming">
             <span className="star">⭐</span> More coming soon
           </div>
 
+          {/* 2. UPDATE PATH PROPERTIES FOR MOBILE STACKING */}
           <Xarrow
             start="card-0"
             end="card-1"
             strokeWidth={2}
             showHead={false}
             dashness={{ strokeLen: 6, nonStrokeLen: 6 }}
-            curveness={0.5}
+            curveness={
+              0.7
+            } /* Slightly higher curveness helps vertical layout s-curves */
             color="white"
           />
           <Xarrow
@@ -144,9 +146,8 @@ const Work = () => {
             end="card-2"
             showHead={false}
             strokeWidth={2}
-            endAnchor="top" 
             dashness={{ strokeLen: 6, nonStrokeLen: 6 }}
-            curveness={0.5}
+            curveness={0.7}
             color="white"
           />
           <Xarrow
@@ -155,7 +156,7 @@ const Work = () => {
             showHead={false}
             strokeWidth={2}
             dashness={{ strokeLen: 6, nonStrokeLen: 6 }}
-            curveness={0.5}
+            curveness={0.7}
             color="white"
           />
           <Xarrow
@@ -164,10 +165,10 @@ const Work = () => {
             showHead={false}
             strokeWidth={2}
             dashness={{ strokeLen: 6, nonStrokeLen: 6 }}
-            curveness={0.5}
+            curveness={0.4}
             color="white"
           />
-        </div>
+        </Xwrapper>
       </div>
       <section className="footer-section">
         <div className="footer-socials">
